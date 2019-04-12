@@ -1,0 +1,742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="Web%20Calendars_files/jquery-1_002.js"></script>
+<script type="text/javascript" src="Web%20Calendars_files/jquery.js"></script>
+
+<script language="javascript" type="text/javascript">
+function Button1_Click(oButton, sButtonText, sCssClass) 
+{ 
+      oButton.disabled = true;         
+      oButton.value = sButtonText;        
+      oButton.setAttribute('className', sCssClass);       
+      oButton.setAttribute('class', sCssClass);
+   
+ }
+</script>   
+
+<script type="text/javascript">
+   var GB_ROOT_DIR = "./greybox/";
+</script>
+
+        <!-- GreyBox -->
+        <script type="text/javascript" src="Web%20Calendars_files/AJS.js"></script>
+        <script type="text/javascript" src="Web%20Calendars_files/AJS_fx.js"></script>
+        <script type="text/javascript" src="Web%20Calendars_files/gb_scripts.js"></script>
+        <link href="Web%20Calendars_files/gb_styles.css" rel="stylesheet" type="text/css" media="all">
+        <script type="text/javascript" src="Web%20Calendars_files/help.htm"></script>
+
+        <!-- Pure CSS -->
+        <link rel="stylesheet" href="Web%20Calendars_files/base-min.css" type="text/css"><link rel="stylesheet" href="Web%20Calendars_files/pure-min.css" type="text/css">
+ 
+        <!-- Data Picker Jquery -->
+        <link rel="stylesheet" href="Web%20Calendars_files/jquery-ui.css" type="text/css">
+        <script type="text/javascript" src="Web%20Calendars_files/jquery-1.js"></script>
+        <script type="text/javascript" src="Web%20Calendars_files/jquery-ui.js"></script>
+
+        <!------------- Web Tour---------------->
+        <!--<link href="../Scripts/Introjs/bootstrap.min.css" rel="stylesheet" />-->
+        <link href="Web%20Calendars_files/introjs.css" rel="stylesheet"><link href="Web%20Calendars_files/bootstrap-responsive.css" rel="stylesheet"><title>
+	Web Calendars
+</title><link rel="icon" href="http://www.imperial.courts.ca.gov/CourtCalendars/images/sealofcalif.ico">
+<style type="text/css">
+
+
+#slideshow #slideshowWindow 
+{
+	width:900px;
+	height:80px;
+	margin:0;
+	padding:0;
+	position:relative;
+	overflow:hidden;
+    top: 0px;
+    left: 0px;
+}
+
+#slideshow #slideshowWindow .slide
+{
+	margin:0;
+	padding:0;
+	width:900px;
+	height:78px;
+	position:relative;
+}
+
+#slideshow #slideshowWindow .slide .slideText
+ {
+	position:absolute;
+	top:1px;
+	left:0px;
+	width:100%;
+	height:78px;
+	background-image:url(../Scripts/images/modal-glossy.png);
+	background-repeat:no-repeat;
+	margin:0;
+	padding:0;
+	color:#2a1b1b;
+	font-family:Myriad Pro, Arial, Helvetica, sans-serif;
+}
+
+#slideshow #slideshowWindow .slide .slideText a:link, #slideshow #slideshowWindow .slide .slideText a:visited 
+{
+	color:#ffffff;
+	text-decoration:none;
+}
+
+#slideshow #slideshowWindow .slide .slideText h2, #slideshow #slideshowWindow .slide .slideText p 
+{
+	margin:10px 0 0 10px;
+	padding:0;
+}
+
+/*Navigation*/
+.nav 
+{
+	display:block;
+	text-indent:-10000px;
+	position:absolute;
+	cursor:pointer;
+}
+
+#leftNav
+ {
+	top:228px;
+	left:350px;
+	width:94px;
+	height:34px;
+	background-image:url(previous.png);
+	background-repeat:no-repeat;
+	z-index:999;
+ }
+
+#rightNav
+ {
+	top:230px;
+	left:450px;
+	width:53px;
+	height:26px;
+	background-image:url(next.png);
+	background-repeat:no-repeat;
+	z-index:999;
+ }
+
+
+    
+ .auto-style5
+    {
+        width: 500px;
+    }
+
+#topbar
+{
+        background: #4f4a41;
+        padding: 4px 0 4px 0;
+        text-align: center;
+}
+
+#topbar a 
+{
+        color: #fff;
+        font-family:Calibri;
+        font-size:1.2em;
+        line-height: 1em;
+        text-decoration: none;
+        opacity: 0.7;
+        font-weight: bold;
+}
+
+#topbar a:hover 
+{
+  opacity: 1;
+  
+}
+
+
+ </style>
+
+ <style type="text/css">
+             #dhtmltooltip
+             {
+                position: absolute;
+                font-family:Calibri;
+                font-size:10pt;
+                width: 220px;
+                border: 1px solid #000066 ;
+                padding: 1px;
+                background-color:transparent ;
+                color:white;
+                visibility: hidden;
+                border-radius: 4px;
+                z-index: 100;
+               
+             }
+ </style>
+
+
+  <style type="text/css">
+        .button-secondary 
+        {
+            color: black;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background:rgba(0, 0, 0, 0.18);
+            height:30px;
+            width:88px;
+            text-align:center;
+          
+        }
+
+         .button-secondary:hover
+     {
+	   background-color: rgba(0, 0, 64, 0.73);
+	   color: white;
+      
+     }
+
+          .textfield-secondary
+        {
+            color: black;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background:whitesmoke; 
+            height:14px;
+            width:140px;
+            text-align:left;
+            font-family:Calibri;
+            font-size:14px;
+          
+        }
+
+
+      .auto-style7
+       {
+          height: 32px;
+       }
+
+  
+      </style>
+
+
+
+
+   <script type="text/javascript">
+       $(document).ready(function ()
+       {
+
+           var currentPosition = 0;
+           var slideWidth =900;
+           var slides = $('.slide');
+           var numberOfSlides = slides.length;
+           var slideShowInterval;
+           var speed = 8000;
+
+           //Assign a timer, so it will run periodically
+           slideShowInterval = setInterval(changePosition, speed);
+
+           slides.wrapAll('<div id="slidesHolder"></div>')
+
+           slides.css({ 'float': 'left' });
+
+           //set #slidesHolder width equal to the total width of all the slides
+           $('#slidesHolder').css('width', slideWidth * numberOfSlides);
+
+           $('#slideshow')
+               .prepend('<span class="nav" id="leftNav">Move Left</span>')
+               .append('<span class="nav" id="rightNav">Move Right</span>');
+
+           manageNav(currentPosition);
+
+           //tell the buttons what to do when clicked
+           $('.nav').bind('click', function ()
+           {
+
+               //determine new position
+               currentPosition = ($(this).attr('id') == 'rightNav')
+               ? currentPosition + 1 : currentPosition - 1;
+
+               //hide/show controls
+               manageNav(currentPosition);
+               clearInterval(slideShowInterval);
+               slideShowInterval = setInterval(changePosition, speed);
+               moveSlide();
+           });
+
+           function manageNav(position)
+           {
+               //hide left arrow if position is first slide
+               if (position == 0)
+               { $('#leftNav').hide() }
+               else { $('#leftNav').show() }
+               //hide right arrow is slide position is last slide
+               if (position == numberOfSlides - 1) { $('#rightNav').hide() }
+               else { $('#rightNav').show() }
+           }
+
+
+           //changePosition: this is called when the slide is moved by the timer and NOT when the next or previous buttons are clicked
+           function changePosition()
+           {
+               if (currentPosition == numberOfSlides - 1)
+               {
+                   currentPosition = 0;
+                   manageNav(currentPosition);
+               }
+               else
+               {
+                   currentPosition++;
+                   manageNav(currentPosition);
+               }
+               moveSlide();
+           }
+
+
+           //moveSlide: this function moves the slide 
+           function moveSlide()
+           {
+               $('#slidesHolder').animate({ 'marginLeft': slideWidth * (-currentPosition) });
+           }
+
+       });
+     </script>
+
+
+<script type="text/javascript">
+
+        $(function ()
+        {
+            $("#datepicker").datepicker();
+
+        });
+
+</script>
+
+<script type="text/javascript">
+
+      wdialog = function ()
+      {
+           $("#dialog").dialog();
+
+      }
+</script>
+
+
+</head>
+
+<body bgcolor="dimgray">
+
+    <form name="form1" method="post" action="./MCalendars.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJODA0NzcwMjU4D2QWAgIDD2QWCgIFDw9kFgIeCW9ua2V5ZG93bgWoAWlmKGV2ZW50LndoaWNoIHx8IGV2ZW50LmtleUNvZGUpe2lmICgoZXZlbnQud2hpY2ggPT0gMTMpIHx8IChldmVudC5rZXlDb2RlID09IDEzKSkge2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdJbWFnZUJ1dHRvbjEnKS5jbGljaygpO3JldHVybiBmYWxzZTt9fSBlbHNlIHtyZXR1cm4gdHJ1ZX07IGQCCQ8PFgIeBFRleHQFFlR1ZXNkYXksIEFwcmlsIDIsIDIwMTlkZAIPDw8WAh4NT25DbGllbnRDbGljawVUQnV0dG9uMV9DbGljayh0aGlzLCAnUGxlYXNlIHdhaXQuLi4nLCAnZGlzYWJsZWRfYnV0dG9uJyk7IF9fZG9Qb3N0QmFjaygnQnV0dG9uMScsJycpZGQCEQ88KwARAgAPFgQeC18hRGF0YUJvdW5kZx4LXyFJdGVtQ291bnQCEGQMFCsACxYIHgROYW1lBRZCcmF3bGV5IENvdXJ0cm9vbSBFYXN0HgpJc1JlYWRPbmx5aB4EVHlwZRkrAh4JRGF0YUZpZWxkBRZCcmF3bGV5IENvdXJ0cm9vbSBFYXN0FggfBQUWQnJhd2xleSBDb3VydHJvb20gV2VzdB8GaB8HGSsCHwgFFkJyYXdsZXkgQ291cnRyb29tIFdlc3QWCB8FBRFFbCBDZW50cm8gRGVwdC4gMR8GaB8HGSsCHwgFEUVsIENlbnRybyBEZXB0LiAxFggfBQURRWwgQ2VudHJvIERlcHQuIDIfBmgfBxkrAh8IBRFFbCBDZW50cm8gRGVwdC4gMhYIHwUFEUVsIENlbnRybyBEZXB0LiAzHwZoHwcZKwIfCAURRWwgQ2VudHJvIERlcHQuIDMWCB8FBRFFbCBDZW50cm8gRGVwdC4gNB8GaB8HGSsCHwgFEUVsIENlbnRybyBEZXB0LiA0FggfBQURRWwgQ2VudHJvIERlcHQuIDUfBmgfBxkrAh8IBRFFbCBDZW50cm8gRGVwdC4gNRYIHwUFEUVsIENlbnRybyBEZXB0LiA2HwZoHwcZKwIfCAURRWwgQ2VudHJvIERlcHQuIDYWCB8FBRFFbCBDZW50cm8gRGVwdC4gOB8GaB8HGSsCHwgFEUVsIENlbnRybyBEZXB0LiA4FggfBQURRWwgQ2VudHJvIERlcHQuIDkfBmgfBxkrAh8IBRFFbCBDZW50cm8gRGVwdC4gORYIHwUFFVdpbnRlcmhhdmVuIENvdXJ0cm9vbR8GaB8HGSsCHwgFFVdpbnRlcmhhdmVuIENvdXJ0cm9vbRYCZg9kFiICAQ9kFhZmDw8WAh8BBRFIb24uIFdpbGxpYW0gUXVhbmRkAgEPDxYCHwEFF0hvbi4gQ2hyaXN0b3BoZXIgUGxvdXJkZGQCAg8PFgIfAQUQSG9uLiBQb2xpIEZsb3Jlc2RkAgMPDxYCHwEFEkhvbi4gRXJhbiBCZXJtdWRlemRkAgQPDxYCHwEFD0hvbi4gSnVhbiBVbGxvYWRkAgUPDxYCHwEFD0hvbi4gSnVhbiBVbGxvYWRkAgYPDxYCHwEFEEhvbi4gTWFyY28gTnVuZXpkZAIHDw8WAh8BBRBIb24uIEtyaXMgQmVja2VyZGQCCA8PFgIfAQUYSG9uLiBNb25pY2EgTGVwZS1OZWdyZXRlZGQCCQ8PFgIfAQURSG9uLiBMLiBBbmRlcmhvbHRkZAIKDw8WAh8BBRZIb24uIE1pY2hhZWwgRG9tZW56YWluZGQCAg9kFhZmDw8WAh8BBQtNaXNkZW1lYW5vcmRkAgEPDxYCHwEFCENyaW1pbmFsZGQCAg8PFgIfAQUIQ3JpbWluYWxkZAIDDw8WAh8BBQhDcmltaW5hbGRkAgQPDxYCHwEFDENvbmZpZGVudGlhbGRkAgUPDxYCHwEFDENvbmZpZGVudGlhbGRkAgYPDxYCHwEFCENyaW1pbmFsZGQCBw8PFgIfAQUMQ29uZmlkZW50aWFsZGQCCA8PFgIfAQULTWlzZGVtZWFub3JkZAIJDw8WAh8BBQxDb25maWRlbnRpYWxkZAIKDw8WAh8BBQdUcmFmZmljZGQCAw9kFhZmDw8WAh8BBQzigKLigKLigKLigKJkZAIBDw8WAh8BBQtNaXNkZW1lYW5vcmRkAgIPDxYCHwEFB0dlbmVyYWxkZAIDDw8WAh8BBQtNaXNkZW1lYW5vcmRkAgQPDxYCHwEFDOKAouKAouKAouKAomRkAgUPDxYCHwEFB0dlbmVyYWxkZAIGDw8WAh8BBQtNaXNkZW1lYW5vcmRkAgcPDxYCHwEFB0dlbmVyYWxkZAIIDw8WAh8BBQzigKLigKLigKLigKJkZAIJDw8WAh8BBQdHZW5lcmFsZGQCCg8PFgIfAQUM4oCi4oCi4oCi4oCiZGQCBA9kFhZmDw8WAh8BBQYmbmJzcDtkZAIBDw8WAh8BBQzigKLigKLigKLigKJkZAICDw8WAh8BBQzigKLigKLigKLigKJkZAIDDw8WAh8BBQzigKLigKLigKLigKJkZAIEDw8WAh8BBRNIb24uIFdpbGxpYW0gTGVobWFuZGQCBQ8PFgIfAQUM4oCi4oCi4oCi4oCiZGQCBg8PFgIfAQUM4oCi4oCi4oCi4oCiZGQCBw8PFgIfAQUM4oCi4oCi4oCi4oCiZGQCCA8PFgIfAQUGJm5ic3A7ZGQCCQ8PFgIfAQUM4oCi4oCi4oCi4oCiZGQCCg8PFgIfAQUGJm5ic3A7ZGQCBQ9kFhZmDw8WAh8BBQYmbmJzcDtkZAIBDw8WAh8BBQYmbmJzcDtkZAICDw8WAh8BBQYmbmJzcDtkZAIDDw8WAh8BBQYmbmJzcDtkZAIEDw8WAh8BBQxDb25maWRlbnRpYWxkZAIFDw8WAh8BBQYmbmJzcDtkZAIGDw8WAh8BBQYmbmJzcDtkZAIHDw8WAh8BBQYmbmJzcDtkZAIIDw8WAh8BBQYmbmJzcDtkZAIJDw8WAh8BBQYmbmJzcDtkZAIKDw8WAh8BBQYmbmJzcDtkZAIGD2QWFmYPDxYCHwEFBiZuYnNwO2RkAgEPDxYCHwEFBiZuYnNwO2RkAgIPDxYCHwEFBiZuYnNwO2RkAgMPDxYCHwEFBiZuYnNwO2RkAgQPDxYCHwEFDOKAouKAouKAouKAomRkAgUPDxYCHwEFBiZuYnNwO2RkAgYPDxYCHwEFBiZuYnNwO2RkAgcPDxYCHwEFBiZuYnNwO2RkAggPDxYCHwEFBiZuYnNwO2RkAgkPDxYCHwEFBiZuYnNwO2RkAgoPDxYCHwEFBiZuYnNwO2RkAgcPZBYWZg8PFgIfAQUGJm5ic3A7ZGQCAQ8PFgIfAQUGJm5ic3A7ZGQCAg8PFgIfAQUGJm5ic3A7ZGQCAw8PFgIfAQUGJm5ic3A7ZGQCBA8PFgIfAQUGJm5ic3A7ZGQCBQ8PFgIfAQUGJm5ic3A7ZGQCBg8PFgIfAQUGJm5ic3A7ZGQCBw8PFgIfAQUGJm5ic3A7ZGQCCA8PFgIfAQUGJm5ic3A7ZGQCCQ8PFgIfAQUGJm5ic3A7ZGQCCg8PFgIfAQUGJm5ic3A7ZGQCCA9kFhZmDw8WAh8BBQYmbmJzcDtkZAIBDw8WAh8BBQYmbmJzcDtkZAICDw8WAh8BBQYmbmJzcDtkZAIDDw8WAh8BBQYmbmJzcDtkZAIEDw8WAh8BBQYmbmJzcDtkZAIFDw8WAh8BBQYmbmJzcDtkZAIGDw8WAh8BBQYmbmJzcDtkZAIHDw8WAh8BBQYmbmJzcDtkZAIIDw8WAh8BBQYmbmJzcDtkZAIJDw8WAh8BBQYmbmJzcDtkZAIKDw8WAh8BBQYmbmJzcDtkZAIJD2QWFmYPDxYCHwEFBiZuYnNwO2RkAgEPDxYCHwEFBiZuYnNwO2RkAgIPDxYCHwEFBiZuYnNwO2RkAgMPDxYCHwEFBiZuYnNwO2RkAgQPDxYCHwEFBiZuYnNwO2RkAgUPDxYCHwEFBiZuYnNwO2RkAgYPDxYCHwEFBiZuYnNwO2RkAgcPDxYCHwEFBiZuYnNwO2RkAggPDxYCHwEFBiZuYnNwO2RkAgkPDxYCHwEFBiZuYnNwO2RkAgoPDxYCHwEFBiZuYnNwO2RkAgoPZBYWZg8PFgIfAQUGJm5ic3A7ZGQCAQ8PFgIfAQUGJm5ic3A7ZGQCAg8PFgIfAQUGJm5ic3A7ZGQCAw8PFgIfAQUGJm5ic3A7ZGQCBA8PFgIfAQUGJm5ic3A7ZGQCBQ8PFgIfAQUGJm5ic3A7ZGQCBg8PFgIfAQUGJm5ic3A7ZGQCBw8PFgIfAQUGJm5ic3A7ZGQCCA8PFgIfAQUGJm5ic3A7ZGQCCQ8PFgIfAQUGJm5ic3A7ZGQCCg8PFgIfAQUGJm5ic3A7ZGQCCw9kFhZmDw8WAh8BBQYmbmJzcDtkZAIBDw8WAh8BBQYmbmJzcDtkZAICDw8WAh8BBQYmbmJzcDtkZAIDDw8WAh8BBQYmbmJzcDtkZAIEDw8WAh8BBQYmbmJzcDtkZAIFDw8WAh8BBQYmbmJzcDtkZAIGDw8WAh8BBQYmbmJzcDtkZAIHDw8WAh8BBQYmbmJzcDtkZAIIDw8WAh8BBQYmbmJzcDtkZAIJDw8WAh8BBQYmbmJzcDtkZAIKDw8WAh8BBQYmbmJzcDtkZAIMD2QWFmYPDxYCHwEFBiZuYnNwO2RkAgEPDxYCHwEFBiZuYnNwO2RkAgIPDxYCHwEFBiZuYnNwO2RkAgMPDxYCHwEFBiZuYnNwO2RkAgQPDxYCHwEFBiZuYnNwO2RkAgUPDxYCHwEFBiZuYnNwO2RkAgYPDxYCHwEFBiZuYnNwO2RkAgcPDxYCHwEFBiZuYnNwO2RkAggPDxYCHwEFBiZuYnNwO2RkAgkPDxYCHwEFBiZuYnNwO2RkAgoPDxYCHwEFBiZuYnNwO2RkAg0PZBYWZg8PFgIfAQUGJm5ic3A7ZGQCAQ8PFgIfAQUGJm5ic3A7ZGQCAg8PFgIfAQUGJm5ic3A7ZGQCAw8PFgIfAQUGJm5ic3A7ZGQCBA8PFgIfAQUGJm5ic3A7ZGQCBQ8PFgIfAQUGJm5ic3A7ZGQCBg8PFgIfAQUGJm5ic3A7ZGQCBw8PFgIfAQUGJm5ic3A7ZGQCCA8PFgIfAQUGJm5ic3A7ZGQCCQ8PFgIfAQUGJm5ic3A7ZGQCCg8PFgIfAQUGJm5ic3A7ZGQCDg9kFhZmDw8WAh8BBQYmbmJzcDtkZAIBDw8WAh8BBQYmbmJzcDtkZAICDw8WAh8BBQYmbmJzcDtkZAIDDw8WAh8BBQYmbmJzcDtkZAIEDw8WAh8BBQYmbmJzcDtkZAIFDw8WAh8BBQYmbmJzcDtkZAIGDw8WAh8BBQYmbmJzcDtkZAIHDw8WAh8BBQYmbmJzcDtkZAIIDw8WAh8BBQYmbmJzcDtkZAIJDw8WAh8BBQYmbmJzcDtkZAIKDw8WAh8BBQYmbmJzcDtkZAIPD2QWFmYPDxYCHwEFBiZuYnNwO2RkAgEPDxYCHwEFBiZuYnNwO2RkAgIPDxYCHwEFBiZuYnNwO2RkAgMPDxYCHwEFBiZuYnNwO2RkAgQPDxYCHwEFBiZuYnNwO2RkAgUPDxYCHwEFBiZuYnNwO2RkAgYPDxYCHwEFBiZuYnNwO2RkAgcPDxYCHwEFBiZuYnNwO2RkAggPDxYCHwEFBiZuYnNwO2RkAgkPDxYCHwEFBiZuYnNwO2RkAgoPDxYCHwEFBiZuYnNwO2RkAhAPZBYWZg8PFgIfAQUGJm5ic3A7ZGQCAQ8PFgIfAQUGJm5ic3A7ZGQCAg8PFgIfAQUGJm5ic3A7ZGQCAw8PFgIfAQUGJm5ic3A7ZGQCBA8PFgIfAQUGJm5ic3A7ZGQCBQ8PFgIfAQUGJm5ic3A7ZGQCBg8PFgIfAQUGJm5ic3A7ZGQCBw8PFgIfAQUGJm5ic3A7ZGQCCA8PFgIfAQUGJm5ic3A7ZGQCCQ8PFgIfAQUGJm5ic3A7ZGQCCg8PFgIfAQUGJm5ic3A7ZGQCEQ8PFgIeB1Zpc2libGVoZGQCGQ8PFgIfAWVkZBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUMSW1hZ2VCdXR0b24xBQlHcmlkVmlldzEPPCsADAEIAgFkhGVVstWHekEU8lX/IbNsb+UzNj08LkA83JiqkCJht1E=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5339381C">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAATjdFrfInnIM2CQ4Av0xz2LESCFkFW/RuhzY1oLb/NUVOmQAq8eUWZ5ZSknq1PiLirN+DvxnwFeFeJ9MIBWR693/+jbj9iuED/TEg9pO+Xe6jOFe5MaavQM4Nn0pa5XFFI=">
+</div>
+               
+        <center>
+            
+             <div id="topbar" style="width: 96%"><a href="https://imperial.courts.ca.gov/index.htm">Back to Home Page</a></div>
+
+             <div id="Div1" style="overflow:auto; width:96%; height: 100%; background-color: #FFFFFF;">
+   
+                <table width="100%" cellspacing="0" cellpadding="0" align="center">
+                <tbody><tr>
+                    
+                     <td align="left">
+                      
+                      <div id="Div2" style="height:78px; width:100%; background-image: url('../Scripts/images/back8.png'); background-repeat: repeat;">
+                    
+                        <!--====================================================================================================-->
+                        <div id="slideshow"><span class="nav" id="leftNav" style="display: block;">Move Left</span>
+                        <div id="slideshowWindow">
+    	                  
+                           <div id="slidesHolder" style="width: 2700px; margin-left: -1800px;"><div class="slide" style="float: left;">
+        	               <img alt="" src="Web%20Calendars_files/back5.png" style="width: 100%;">
+                           <div class="slideText" style="text-align: left;">
+                              <table width="100%" cellspacing="0" cellpadding="0">
+                                   <tbody><tr>
+                                        <td class="auto-style5" valign="top" align="left">
+                                        <img alt="" src="Web%20Calendars_files/SC%2520Logo.png" style="height: 75px; width: 350px">
+                                        </td>
+                                        
+                                        <td valign="middle" align="left">
+                                        <p style="color: #000060; font-size: 29px; font-weight: bolder; font-family: Calibri;">Five Days Court Calendars</p>
+                                        </td>
+                                    </tr>
+                              </tbody></table>
+                            </div>
+                            </div><div class="slide" style="float: left;">
+        	               <img alt="" src="Web%20Calendars_files/back5.png" style="width: 100%;">
+	                       <div class="slideText" style="text-align: left;">
+                           <table width="100%">
+                                  <tbody><tr>
+                                        <td width="450px" valign="top" align="left">
+                                        <img alt="" src="Web%20Calendars_files/SC%2520Logo.png" style="height: 75px; width: 350px">
+                                        </td>
+                                        
+                                        <td valign="top" align="left">
+                                        <p style="color: #000060; font-size: 14px; font-weight: bolder; font-family: Calibri;">The
+ information is posted as is and is subject to change as case 
+information is updated. Please visit calendar page regularly for changes
+ throughout the day. <a href="javascript:void(0);" onclick="startIntro();" style="font-family: Calibri; font-size: 19px; color: #800000; text-decoration: none;"> <b>  Quick Guide » </b></a></p>
+                                        </td>
+                                    </tr>
+                              </tbody></table>
+                           </div>
+                           </div><div class="slide" style="float: left;">
+        	               <img alt="" src="Web%20Calendars_files/back8.png" style="width: 100%;">
+	                       <div class="slideText" style="text-align: left;">
+                           <table width="100%">
+                                  <tbody><tr>
+                                        <td width="450px" valign="top" align="left">
+                                        <img alt="" src="Web%20Calendars_files/SC%2520Logo.png" style="height: 75px; width: 350px">
+                                        </td>
+                                        
+                                        <td valign="middle" align="left">
+                                        <p style="color: #000060; font-size: 20px; font-weight: bolder; font-family: Calibri;">Calendars are updated at 4:30 PM the day prior to the calendar date.</p>
+                                        </td>
+                                     
+                                  </tr>
+                              </tbody></table>
+                            </div>
+                            </div></div>
+                 
+                           
+                 
+                           
+                    </div>
+                    <span class="nav" id="rightNav" style="display: none;">Move Right</span></div>  
+                    <!--=======================================================================================================-->
+                    </div>
+
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-image: url('../Scripts/images/back8.png'); background-repeat: repeat" class="auto-style7" align="right">
+                      
+                         <table>
+                            <tbody><tr>
+                                <td valign="bottom" align="left">
+                                    <div id="introjs2">
+                                    <a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarByJudge.aspx" rel="gb_page_fs[]" title="">
+							        <img alt="" src="Web%20Calendars_files/calendar_blank.png" onmouseover="ddrivetip('To Search...choose specific information you want to match','#000040',160)" onmouseout="hideddrivetip()" width="30" border="0" align="middle"></a>
+                                    <span id="Label3" style="color:Black;font-family:Calibri;font-size:9pt;font-weight:bold;font-style:normal;font-size: 9pt; color: #333333">Advanced Search</span>
+                                    </div>
+                                </td>
+                               
+                                <td width="40px" valign="bottom" align="left"></td>
+                              
+                              
+                              
+                                <td valign="bottom" align="left">
+                                    <div id="introjs3">
+                                    <a href="http://www.imperial.courts.ca.gov/CourtCalendars/Monitor/PDFMonitor.aspx" rel="gb_page_fs[]" title="">
+                                    <img alt="" src="Web%20Calendars_files/attachment.png" onmouseover="ddrivetip('Calendar Report by Location','#000040',120)" onmouseout="hideddrivetip()" width="29" border="0" align="middle"></a>
+                                    <span id="Label1" title="Calendar Report By Location" style="font-family:Calibri;font-size:9pt;font-weight:bold;font-style:normal;font-size: 9pt; color: #333333">Calendar  By Location</span>
+                                    </div>
+
+                                </td>
+                              
+                              
+                              
+                                <td width="40px" valign="bottom" align="left"></td>
+                              
+                                <td valign="bottom" align="left">
+                                 <div id="introjs4">
+                                 <input name="TextBox1" type="text" id="TextBox1" placeholder="Search..." class="textfield-secondary pure-button" onkeydown="if(event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('ImageButton1').click();return false;}} else {return true}; ">
+                                 </div>      
+                  
+                                </td>
+                              
+                                <td valign="bottom" align="left">
+                                   
+                  
+                                                <input type="image" name="ImageButton1" id="ImageButton1" onmouseover="ddrivetip('General Search will try to match what you enter with any text found in the Court Calendars.','#000040',190)" onmouseout="hideddrivetip()" src="Web%20Calendars_files/search.png" style="width:30px;border-width:0px;">
+                                   
+                  
+                                </td>
+                                
+                        </tr>
+                        </tbody></table>
+
+
+
+
+
+
+                    </td>
+                </tr>
+             
+                <tr>
+                    <td align="left">
+                      
+                        <center>
+                  
+                             <br>
+                             <div style="position:absolute; top: auto; left: 9%;">
+                                 <span id="LabelDate" style="font-family:Calibri;font-size:21pt;font-weight:bold;font-style:normal;color: #CCCCCC">Tuesday, April 2, 2019</span>
+                             </div>
+                            
+                            <br><br>
+                            <div id="dialog" title="Information">
+
+                               
+                    
+                            </div>
+                            
+                            <div id="introjs1" style="width: 400px">
+                            <span id="Label7" style="color:Black;font-family:Calibri;font-size:13pt;font-weight:bold;font-style:normal;font-size: 13pt">Select a Date:</span>
+                           
+                        
+                           
+                          <input type="text" id="datepicker" style="width: 110px; font-size: 18px; font-family: Calibri; font-weight: bold;" name="datecal" class="hasDatepicker">
+
+                         
+                          <input type="submit" name="Button1" value="Submit »" onclick="Button1_Click(this, 'Please wait...', 'disabled_button'); __doPostBack('Button1','');" id="Button1" class="button-secondary pure-button" style="border-style:None;font-family:Calibri;font-size:12pt;font-weight:bold;">
+                          </div>
+                       </center>
+                                 <div>
+	<table rules="cols" id="GridView1" style="color:Black;border-color:#000040;border-width:3px;border-style:Solid;font-family:Calibri;font-size:10pt;height:80%;width:90%;border-collapse:collapse;font-size: 10pt" cellspacing="0" cellpadding="1" border="3" align="Center">
+		<tbody><tr style="color:White;background-color:#000040;font-family:Calibri;font-size:10pt;font-weight:normal;text-decoration:none;" align="center">
+			<th scope="col">Brawley Courtroom East</th><th scope="col">Brawley Courtroom West</th><th scope="col">El Centro Dept. 1</th><th scope="col">El Centro Dept. 2</th><th scope="col">El Centro Dept. 3</th><th scope="col">El Centro Dept. 4</th><th scope="col">El Centro Dept. 5</th><th scope="col">El Centro Dept. 6</th><th scope="col">El Centro Dept. 8</th><th scope="col">El Centro Dept. 9</th><th scope="col">Winterhaven Courtroom</th>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>Hon. William Quan</td><td>Hon. Christopher Plourd</td><td>Hon. Poli Flores</td><td>Hon. Eran Bermudez</td><td>Hon. Juan Ulloa</td><td>Hon. Juan Ulloa</td><td>Hon. Marco Nunez</td><td>Hon. Kris Becker</td><td>Hon. Monica Lepe-Negrete</td><td>Hon. L. Anderholt</td><td>Hon. Michael Domenzain</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Misdemeanor&amp;JudgeId_Report2=Hon.%20William%20Quan&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=Brawley%20Courtroom%20East">Misdemeanor</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Criminal&amp;JudgeId_Report2=Hon.%20Christopher%20Plourd&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=Brawley%20Courtroom%20West">Criminal</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Criminal&amp;JudgeId_Report2=Hon.%20Poli%20Flores&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%201">Criminal</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Criminal&amp;JudgeId_Report2=Hon.%20Eran%20Bermudez&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%202">Criminal</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Confidential&amp;JudgeId_Report2=Hon.%20Juan%20Ulloa&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%203">Confidential</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Confidential&amp;JudgeId_Report2=Hon.%20Juan%20Ulloa&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%204">Confidential</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Criminal&amp;JudgeId_Report2=Hon.%20Marco%20Nunez&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%205">Criminal</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Confidential&amp;JudgeId_Report2=Hon.%20Kris%20Becker&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%206">Confidential</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Misdemeanor&amp;JudgeId_Report2=Hon.%20Monica%20Lepe-Negrete&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%208">Misdemeanor</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Confidential&amp;JudgeId_Report2=Hon.%20L.%20Anderholt&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%209">Confidential</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Traffic&amp;JudgeId_Report2=Hon.%20Michael%20Domenzain&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=Winterhaven%20Courtroom">Traffic</a></td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>••••</td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Misdemeanor&amp;JudgeId_Report2=Hon.%20Christopher%20Plourd&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=Brawley%20Courtroom%20West">Misdemeanor</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=General&amp;JudgeId_Report2=Hon.%20Poli%20Flores&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%201">General</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Misdemeanor&amp;JudgeId_Report2=Hon.%20Eran%20Bermudez&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%202">Misdemeanor</a></td><td>••••</td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=General&amp;JudgeId_Report2=Hon.%20Juan%20Ulloa&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%204">General</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Misdemeanor&amp;JudgeId_Report2=Hon.%20Marco%20Nunez&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%205">Misdemeanor</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=General&amp;JudgeId_Report2=Hon.%20Kris%20Becker&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%206">General</a></td><td>••••</td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=General&amp;JudgeId_Report2=Hon.%20L.%20Anderholt&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%209">General</a></td><td>••••</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>••••</td><td>••••</td><td>••••</td><td>Hon. William Lehman</td><td>••••</td><td>••••</td><td>••••</td><td>&nbsp;</td><td>••••</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/CalendarReportV2.aspx?CaseId_Report2=Confidential&amp;JudgeId_Report2=Hon.%20William%20Lehman&amp;Time_Report2=4/2/2019%2012:00:00%20AM&amp;Location_Report2=El%20Centro%20Dept.%203">Confidential</a></td><td><a href="http://www.imperial.courts.ca.gov/CourtCalendars/Public/Guidelines.aspx">Dept. 4 Guidelines</a></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>••••</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:White;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr style="color:Black;background-color:WhiteSmoke;border-style:None;" valign="middle" align="center">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+	</tbody></table>
+</div>
+                              <br><br>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                       <div id="Div3" style="border-color: #FFFFFF; border-width: 0px; overflow:hidden; width:100%; height:70px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-bottom-style: solid; background-image: url('../Scripts/images/back8.png'); background-repeat: repeat;">
+                     
+                        <center>
+                        <span id="Label5" style="color:DimGray;font-family:Calibri;font-size:10pt;font-weight:bold;font-style:normal;font-size: 8pt; color: #000000;">Any errors or issues should be reported to infodesk@imperial.courts.ca.gov
+                        for review by Court Staff.</span>
+                        </center>
+                      
+                        <center>
+                        <span id="Label11" style="color:DimGray;font-family:Calibri;font-size:10pt;font-size: 8pt; font-weight: 700; color: #333333">This web site uses files in Adobe Acrobat Portable Document Format  (PDF).</span>
+                        </center>
+                    
+
+                        <center>
+                        <span id="Label10" style="color:Black;font-family:Calibri;font-size:10pt;font-weight:bold;font-style:normal;font-size: 8pt; color: #000000;">Copyright 2018 by Superior Court of California, County Imperial.</span>
+                        </center>
+                           
+                       <center>
+                       
+                       </center>
+                           
+                           
+                      </div>                  
+                    </td>
+                </tr>
+            </tbody></table>
+
+           
+          
+       
+       
+        </div>
+        </center>
+       
+       
+   
+    </form>
+    
+     <script type="text/javascript">
+           GB_myShow = function(caption, url, /* optional */ height, width, callback_fn)
+           {
+               var options =
+               {
+                   caption: caption,
+                   height: height || 500,
+                   width: width || 500,
+                   fullscreen: false,
+                   show_loading: false,
+                   callback_fn: callback_fn
+                }
+                var win = new GB_Window(options);
+                return win.show(url);
+          }
+       </script>
+
+      <div id="dhtmltooltip"></div>
+
+        <script type="text/javascript">
+
+            var offsetxpoint = -20 //Customize x offset of tooltip
+            var offsetypoint = 20 //Customize y offset of tooltip
+            var ie = document.all
+            var ns6 = document.getElementById && !document.all
+            var enabletip = false
+            if (ie || ns6)
+                var tipobj = document.all ? document.all["dhtmltooltip"] : document.getElementById ? document.getElementById("dhtmltooltip") : ""
+
+            function ietruebody() {
+                return (document.compatMode && document.compatMode != "BackCompat") ? document.documentElement : document.body
+            }
+
+            function ddrivetip(thetext, thecolor, thewidth) {
+                if (ns6 || ie) {
+                    if (typeof thewidth != "undefined") tipobj.style.width = thewidth + "px"
+                    if (typeof thecolor != "undefined" && thecolor != "") tipobj.style.backgroundColor = thecolor
+                    tipobj.innerHTML = thetext
+                    enabletip = true
+                    return false
+                }
+            }
+
+            function positiontip(e) {
+                if (enabletip) {
+                    var curX = (ns6) ? e.pageX : event.clientX + ietruebody().scrollLeft;
+                    var curY = (ns6) ? e.pageY : event.clientY + ietruebody().scrollTop;
+                    //Find out how close the mouse is to the corner of the window
+                    var rightedge = ie && !window.opera ? ietruebody().clientWidth - event.clientX - offsetxpoint : window.innerWidth - e.clientX - offsetxpoint - 20
+                    var bottomedge = ie && !window.opera ? ietruebody().clientHeight - event.clientY - offsetypoint : window.innerHeight - e.clientY - offsetypoint - 20
+
+                    var leftedge = (offsetxpoint < 0) ? offsetxpoint * (-1) : -1000
+
+                    //if the horizontal distance isn't enough to accomodate the width of the context menu
+                    if (rightedge < tipobj.offsetWidth)
+                        //move the horizontal position of the menu to the left by it's width
+                        tipobj.style.left = ie ? ietruebody().scrollLeft + event.clientX - tipobj.offsetWidth + "px" : window.pageXOffset + e.clientX - tipobj.offsetWidth + "px"
+                    else if (curX < leftedge)
+                        tipobj.style.left = "4px"
+                    else
+                        //position the horizontal position of the menu where the mouse is positioned
+                        tipobj.style.left = curX + offsetxpoint + "px"
+
+                    //same concept with the vertical position
+                    if (bottomedge < tipobj.offsetHeight)
+                        tipobj.style.top = ie ? ietruebody().scrollTop + event.clientY - tipobj.offsetHeight - offsetypoint + "px" : window.pageYOffset + e.clientY - tipobj.offsetHeight - offsetypoint + "px"
+                    else
+                        tipobj.style.top = curY + offsetypoint + "px"
+                    tipobj.style.visibility = "visible"
+                }
+            }
+
+            function hideddrivetip() {
+                if (ns6 || ie) {
+                    enabletip = false
+                    tipobj.style.visibility = "hidden"
+                    tipobj.style.left = "-1000px"
+                    tipobj.style.backgroundColor = ''
+                    tipobj.style.width = ''
+                }
+            }
+
+            document.onmousemove = positiontip
+
+       </script>
+    
+      <script type="text/javascript" src="Web%20Calendars_files/intro.js"></script>
+     <script type="text/javascript">
+         function startIntro() {
+             var intro = introJs();
+             intro.setOptions({
+                 steps: [
+                   {
+                       intro: "<center><h1>Welcome!</h1><table><tr><td><img src='../Images/SC Logo.png' Height='60' Width='290'/></td></table><span style='font-family: Calibri; font-size: 16px; color: #808080'>Superior Court of California <br> County of Imperial</span></center>",
+                       position: 'center'
+                   },
+                   {
+                       element: document.querySelector('#introjs'),
+                       intro: "<img src='../Images/calendar_full.png' Height='35'/><span style='font-family: Calibri; font-size: 15px; color: #000060'>   <b>Court Calendars</b><br><br> Court Calendars website is a service maintained by Superior Court of Imperial to provide certain court information to the Public (General, Criminal, Traffic, Confidential, Small Claims, Juvenile and Mental Health cases). <br><br> The Superior Court Calendars provides access to 5 days of Court Calendars. <br><br> This web site uses files in Adobe Acrobat Portable Document Format (PDF)</span>",
+                       position: 'center'
+                   },
+                   {
+                       element: document.querySelector('#introjs1'),
+                       intro: "<img src='../Images/process.png' Height='35'/><span style='font-family: Calibri; font-size: 15px; color:#000060'>  <b>Select a Date</b><br><br>Click a date on Calendar to access the cases group by Location and Division.<br><br> Note: Select a date within the next 5 business days.</span>",
+                       position: 'bottom'
+                   },
+                   {
+                       element: document.querySelectorAll('#introjs2')[0],
+                       intro: "<img src='../Images/calendar_blank.png' Height='35'/><span style='font-family: Calibri; font-size: 15px; color: #000060'> <b>Advanced Search</b> <br><br> For advanced search, you can choose specific information you want to match. (Date Range, Judge Name, Location/Department and Division)</span>",
+                       position: 'bottom'
+                   },
+                   {
+                       element: document.querySelectorAll('#introjs3')[0],
+                       intro: "<img src='../Images/attachment.png' Height='35'/><span style='font-family: Calibri; font-size: 15px; color: #000060'> <b>  Calendar by Location</b> <br><br> Calendar Report by Location/Department</span>",
+                       position: 'bottom'
+                   },
+                   {
+                       element: '#introjs4',
+                       intro: "<img src='../Images/search.png' Height='35'/><span style='font-family: Calibri; font-size: 15px; color: #000060'><b> General Search</b> <br><br> A general search will try to match what you enter with any text found in the Calendars. (Case Number, Name, Last Name, Type of Case, Judge Name ... etc)</span>",
+                       position: 'left'
+                   },
+                   {
+                       element: '#introjs5',
+                       intro: "<img src='../Images/notebook.png' Height='35'/><span style='font-family: Calibri; font-size: 15px; color: #000060'>  Any errors or issues should be reported for review to: <br><br> <b>infodesk@imperial.courts.ca.gov</b> <br><br> <center>Thank you!</center></span>",
+                       position: 'left'
+                   }
+                 
+                 ]
+             });
+
+             intro.start();
+         }
+    </script>
+
+      
+
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div id="dict" class="card-panel grey lighten-4"><div id="dict-inner"></div><img id="toktogi-lock" class="toktogi-icon" src="Web%20Calendars_files/unlock.png"></div></body></html>
