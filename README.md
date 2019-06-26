@@ -3,11 +3,11 @@ Recreates a case database from disjointed pdf files online by automating a web b
 
 Local court did not grant practitioners access to the court case database backend.  Rather, what could be accessed publicly was a site that had various .pdfs of the calendars.
 
-Practitioners need to pull all cases, note changes to court calendars, and compare 
+Practitioners need to pull all cases, note changes to court calendars, and compare those calendars to pending internal calendars.
 
-Step 1 is to recreate the court's database of cases so that those entries can be compared to practitioners' internal databases.
+The key step is to recreate the court's database of cases so that those entries can be compared to practitioners' internal databases.
 
-These two programs extract data so that Step 1 can be began when the practictioner's desired database format is known.
+These two programs extract data to facilitate the key step when the practictioner's desired database format is known.
 
 GUIandDatePicker automates a web browser to select today, tomorrow, or another day.  (GUI done as concept for user-friendliness.  Assuming the backend is completed, user-friendliness would be desirable, as would better UI/UX than currently presented.)
 
