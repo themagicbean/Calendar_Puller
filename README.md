@@ -7,9 +7,9 @@ Practitioners need to pull all cases, note changes to court calendars, and compa
 
 Step 1 is to recreate the court's database of cases so that those entries can be compared to practitioners' internal databases.
 
-These two programs get *most* of the way through Step 1.
+These two programs extract data so that Step 1 can be began when the practictioner's desired database format is known.
 
-GUIandDatePicker automates a web browser to select today, tomorrow, or another day.  (GUI for user-friendliness.)
+GUIandDatePicker automates a web browser to select today, tomorrow, or another day.  (GUI done as concept for user-friendliness.  Assuming the backend is completed, user-friendliness would be desirable, as would better UI/UX than currently presented.)
 
 PdfToTextAndSplit changes the pdf files to text, finds judge and department, and breaks case entries into strings in a list.  (From there, the goal would be to process the strings into database entries for comparison, see future plan 5, below.)
 
@@ -19,10 +19,7 @@ Copies of a random day of calendars are in the "calendars" folder.)
 
 Known issues / future plans:
 
-1.  "Tomorrow" date picker does not work on Friday (because of weekend), need to tweak to only pick work (court) days.
-2.  Goal would be to extend the os.makedir to make folders for each day picked and sub-folders for each time calendars were pulled (for comparison).
-3.  Also regexes that get data (judge, department, case data) should return that data as functions so that data can then be passed elsewhere.
-4.  Realistically my office is probably going to synch with the court system in the near future so most of this will be rendered obsolete/useless.  Just putting it out there because it actually works (thus far).  See also 6.
-5.  Need to choose a database/case management approach on the client end.  Then the lists of case strings can be broken down into database / dictionary entries so that, each time the calendar is pulled, changes are highlighted (and/or conflicts with the client's internal client/calendar management database can be noted).
-6.  See 4 if this never gets finished/updated.
-
+1.  "Tomorrow" date picker does not work for days before holidays/weekends, need to add comparison to known days off and skip those.
+2.  Goal would be to extend the os.makedir to make folders for each day picked and sub-folders for each time calendars were pulled (for comparison) so that changes to the calendars for X day can be seen.
+3.  Also regexes that get data (judge, department, case data) should return that data as dicts or functions so that data can then be passed elsewhere.
+4.  Need to choose a database/case management approach on the client end, this will probably be dictated by existing client software.  Then the lists of case strings can be broken down into database / dictionary entries so that, each time the calendar is pulled, changes are highlighted (and/or conflicts with the client's internal client/calendar management database can be noted).
