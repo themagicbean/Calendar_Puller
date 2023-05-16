@@ -17,6 +17,8 @@ PdfToTextAndSplit changes the pdf files to text, finds judge and department, and
 A copy of a random day of the site is in the "samplecalpage" folder.
 Copies of a random day of calendars are in the "calendars" folder.)
 
+[Edit: By 2023 the court was displaying the cases in the web page instead of a separate pdf.]
+
 Known issues / future plans:
 
 1.  "Tomorrow" date picker does not work for days before holidays/weekends, need to add comparison to known days off and skip those.
